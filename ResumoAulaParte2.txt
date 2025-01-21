@@ -1,0 +1,27 @@
+## CLONANDO UM REPOSITÓRIO:
+    - PARA CLONAR UM REPOSITÓRIO GIT DE ALGUÉM PARA O SEU REPOSITÓRIO,
+    - PODEMOS USAR O COMANDO:
+        - git clone "url do repositório a ser clonado."
+
+
+## REALIZANDO UM COMMIT:
+
+    # O COMANDO GIT STATUS:
+        - UTILIZADO PARA EXIBIR UM RELATÓRIO SOBRE OS ARQUIVOS ALTERADOS.
+
+        - EXEMPLO:
+            - PS C:\Users\User\Documents\Numero-Secreto> git status
+
+    # O COMANDO GIT ADD:
+        - USADO PARA ADICIONAR UM ARQUIVO ESPECÍFICO AO REPOSITÓRIO LOCAL.
+        - COMANDO: git add "nome do arquivo"
+
+        - NESSE EXEMPLO PRÁTICO IRÁ ADICIONAR TODOS OS ARQUIVOS DE UM PROJETO
+        AO REPOSITÓRIO LOCAL.
+        - NESSE CASO USAREMOS O COMANDO:
+            git add .
+            
+        EXEMPLO NA PRÁTICA :
+                
+
+

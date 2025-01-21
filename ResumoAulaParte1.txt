@@ -1,0 +1,165 @@
+
+# COMANDOS GIT:
+
+GIT INIT:
+    - deve ser utilizado para converter um diretório existente no computador,
+     que geralmente é o diretório de algum projeto, em um repositório Git.
+
+    EXEMPLO NA PRÁTICA:
+        - PS C:\Users\User\Documents\Numero-Secreto> git init
+
+    SAIDA DO COMANDO:
+    Reinitialized existing Git repository in C:/Users/User/Documents/Numero-Secreto/.git/
+
+
+    # CUIDADOS COM O COMANDO GIT INIT:
+
+        - GIT INIT é um comando para criar um novo repositório Git, portanto,
+        deve ser executado apenas uma única vez.
+
+        - Caso o comando GIT INIT for executado em um diretório que já foi inicializado
+        como um repositório Git, a seguinte mensagem será exibida:
+            - Reinitialized existing Git repository in C:/Users/User/Documents/Numero-Secreto/.git/
+
+
+GIT ADD:
+    - Adiciona arquivo no git
+
+    - Para adicionar vários arquivos no git usamos o comando git add .
+
+    - EXEMPLO NA PRÁTICA:
+        - PS C:\Users\User\Documents\Numero-Secreto> git add .
+
+    - SAIDA DO COMANDO:
+     warning: in the working copy of 'app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'img/JS Game.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'img/JS Game_files/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'img/JS Game_files/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'style.css', LF will be replaced by CRLF the next time Git touches it
+
+
+
+GIT PUSH:
+    - ESTE COMANDO DEVE SER EXECUTAD PARA SINCRONIZAR AS MUDANÇAS DO REPOSITÓRIO LOCAL
+    COM O REPOSITÓRIO REMOTO.
+
+    - NO ENTANDO, PARA GARANTIR UMA CONEXÃO SEGURA, É ESSENCIAL CONFIGURAR UMA CHAVE SSH
+    no computador antes de executar esse comando.
+
+    CHAVE SSH:
+        - AO VINCULAR UM REPOSITÓRIO REMOTO AO NOSSO REPOSITÓRIO LOCAL, VIA COMANDO:
+        git remote add, PRECISAMOS DE USAR UM PROTOCOLO SEGURO, COMO HTTPS OU SSH.
+
+        - AO UTILIZAR O PROTOCOLO SSH, DEVEMOS GERAR UMA CHAVE SSH EM NOSSO COMPUTADOR 
+        , ALÉM DE CADASTRÁ-LA EM NOSSA CONTA DO GITHUB.
+
+        - ISSO É NECESSÁRIO PARA GARANTIR A AUTENTICAÇÃO, POIS O GITHUB CHECA SE QUEM ESTÁ
+        REALIZANDO O PUSH DOS COMMITS TEM PERMISSÃO PARA REALIZAR TAL AÇÃO.
+
+    GERANDO UMA CHAVE SSH:
+        - A CHAVE SSH DEVE SER GERADA ANTES DE EXECUTARMOS O COMANDO: git push.
+
+        - A CHAVE SSH É GERADA VIA TERMINAL USANDO O SEGUINTE COMANDO:
+            - ssh-keygen -t ed25519 -C "SEU EMAIL AQUI"
+
+
+    CADASTRANDO A CHAVE SSH NO GITHUB:
+        - APÓS GERARMOS UMA CHAVE SSH DEVEMOS CADASTRÁ-LA NA CONTA DO GITHUB.
+
+        - O GITHUB IRÁ CONSEGUIR IDENTIFICAR E AUTENTICAR AO EXECUTAR O COMANDO
+        git push em nosso computador.    
+
+
+=================================================================================
+
+COMANDO GIT REMOTE:
+    - ALÉM DE FAZER O LINK ENTRE O REPOSITÓRIO LOCAL COM O REPOSITÓRIO REMOTO, PORÉM,
+    ESSE COMANDO POSSUÍ ALGUMAS VARIAÇÕES E PARÂMETROS OPCIONAIS QUE PODEM NOS AJUDAR 
+    EM CERTAS SITUAÇÕES, POR EXEMPLO:
+
+
+        - ADICIONAR UM REPOSITÓRIO REMOTO:
+            - COMANDO:
+                - git remote add.
+
+            - PARA QUE SERVE:
+                - QUANDO DESEJAMOS ESTABELECER UMA CONEXÃO COM O REPOSITÓRIO LOCAL
+                EM UM REPOSITÓRIO REMOTO.
+
+                - É UMA FERRAMENTA ESSENCIAL, POIS POSSIBILITA A COLABORAÇÃO E O COM-
+                PARTILHAMENTO DE CÓDIGO COM OUTRAS PESSOAS, BEM COMO FAZER BACKUP DE
+                SEU TRABALHO EM UM SERVIDOR REMOTO.
+
+            - SINTAXE BÁSICA:
+                - git remote add a apelido url
+
+
+                - 'apelido': Este é um nome que você atribui ao repositório remoto.
+                - Geralmente, se utiliza nomes descritivos, como "origin" para o 
+                repositório principal no GitHub, mas você pode escolher nomes que 
+                façam sentido para o seu projeto.
+
+
+                - 'url': Aqui, você insere a URL do repositório remoto. Esta URL é única para
+                 cada repositório remoto e serve como o endereço para acessar e interagir com
+                 ele pela internet.
+                -  Certifique-se de copiar a URL correta do repositório que deseja adicionar.
+
+        
+        # LISTAR OS REPOSITÓRIOS REMOTOS:
+            - LISTANDO REPOSITÓRIOS REMOTOS ASSOCIADOS AO SEU PROJETO LOCAL.
+            - PODEMOS USAR O COMANDO: git remote -v.
+            - ESSE COMANDO EXIBIRÁ UMA LISTA DE TODOS OS REPOSITÓRIOS REMOTOS VINCULADOS AO SEU
+            PROJETO, JUNTAMENTE COM SUAS URLs.
+
+            # EXEMPLO NA PRÁTICA:
+                - git remote -vez
+
+                - SAÍDA DO COMANDO:
+                   origin  https://github.com/seu-usuario/seu-projeto.git (fetch)
+                   origin  https://github.com/seu-usuario/seu-projeto.git (push)     
+
+            - ESSA LISTA É ÚTIL PARA VERIFICAR SE OS REPOSITÓRIOS REMOTOS ESTÃO CONFIGURADOS CORRETAMENTE.
+
+            - APARECERÁ DUPLICADO, POIS O GIT SEPARA A URL DE ENVIO DE COMMITS (PUSH) DA URL DE BAIXAR COMMITS (FETCH).
+
+
+        # REMOVER UM REPOSITÓRIO REMOTO:
+            - PARA REMOVER UM REPOSITÓRIO REMOTO, PODEMOS USAR O COMANDO:
+                - git remote remove origin.
+
+            # EXEMPLO DO COMANDO:
+            git remote remove origin
+
+            - AO EXECUTAR ESSE COMANDO, O REPOSITÓRIO REMOTO CHAMADO "ORIGIN" SERÁ DESVINCULADO DO SEU PROJETO LOCAL.
+
+
+        # ALTERAR A URL DE UM REPOSITÓRIO REMOTO:
+             - QUANDO PRECISAMOS ATUALIZAR A URL EM UM REPOSITÓRIO REMOTO, SEJA COMO, QUANDO A URL DO SERVIDOR DO GITHUB É MODIFICADA
+             OU QUANDO VOCÊ COPIOU A URL INCORRETA AO ADICIONAR O REPOSITÓRIO REMOTO.
+
+             -  PARA FAZER ESSE TIPO DE ATUALIZAÇÃO, USAMOS O COMANDO:
+                 - git remote set-url apelido nova_url
+
+                 - Nesse caso, o estamos substituindo "apelido" pelo nome do repositório remoto e "nova_url" pela nova URL QUE DESEJA
+                 ASSOCIAR A ELE.
+
+            EXEMPLO DO COMANDO:
+            git remote set-url origin https://github.com/Castrotoy/numero-secreto
+
+                - ISSO ATUALIZARÁ A URL DO REPOSITÓRIO REMOTO "ORIGIN" PARA NOVA URL ESPECÍFICADA.
+
+
+        # ALTERAR O APELIDO DE UM REPOSITÓRIO REMOTO:
+            - CASO DESEJAMOS RENOMEAR UM REPOSITÓRIO REMOTO, PODEMOS USAR O COMANDO:
+                - git remote rename apelido novo_apelido
+            
+            - NESSE CASO, ESTAMOS SUBSTITUINDO "apelido" pelo nome do repositório remoto e "novo_apelido" pelo novo nome que desejamos atriuir
+            nele.
+
+
+            EXEMPLO:
+            git remote rename origin novo_origin            
+
+

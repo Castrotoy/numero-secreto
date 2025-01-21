@@ -1,0 +1,31 @@
+
+# COMANDOS GIT:
+
+GIT INIT:
+    - deve ser utilizado para converter um diretório existente no computador,
+     que geralmente é o diretório de algum projeto, em um repositório Git.
+
+    EXEMPLO NA PRÁTICA:
+        - PS C:\Users\User\Documents\Numero-Secreto> git init
+
+    SAIDA DO COMANDO:
+    Reinitialized existing Git repository in C:/Users/User/Documents/Numero-Secreto/.git/
+
+
+    # CUIDADOS COM O COMANDO GIT INIT:
+
+        - GIT INIT é um comando para criar um novo repositório Git, portanto,
+        deve ser executado apenas uma única vez.
+
+        - Caso o comando GIT INIT for executado em um diretório que já foi inicializado
+        como um repositório Git, a seguinte mensagem será exibida:
+            - Reinitialized existing Git repository in C:/Users/User/Documents/Numero-Secreto/.git/
+
+
+GIT ADD:
+    - Adiciona arquivo no git
+
+    - Para adicionar vários arquivos no git usamos o comando git add .
+
+    - EXEMPLO NA PRÁTICA:
+        - 
